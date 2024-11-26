@@ -1,0 +1,395 @@
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --background-light: #f8f9fa;
+    --text-dark: #2c3e50;
+    --text-light: #ecf0f1;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    padding: 2rem 1rem;
+}
+
+/* Navbar Styling */
+.navbar-custom {
+    background: linear-gradient(to right, #2c3e50, #3498db);
+    padding: 1rem 2rem;
+    box-shadow: var(--shadow);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light) !important;
+}
+
+.navbar-brand i {
+    color: #e74c3c;
+    margin-right: 0.5rem;
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #e74c3c !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #e74c3c;
+    transition: var(--transition);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Card Styling */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Button Styling */
+.btn {
+    border-radius: 25px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #2c3e50, #3498db);
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    border: none;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+}
+
+/* Social Login Buttons */
+.social-login-btn {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 25px;
+    transition: var(--transition);
+    font-size: 1rem;
+}
+
+.facebook-btn {
+    background: linear-gradient(135deg, #3b5998, #1565C0);
+}
+
+.facebook-btn:hover {
+    background: linear-gradient(135deg, #1565C0, #3b5998);
+    transform: translateY(-2px);
+}
+
+.instagram-btn {
+    background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+}
+
+.instagram-btn:hover {
+    background: linear-gradient(-45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D);
+    transform: translateY(-2px);
+}
+
+/* Form Styling */
+.form-control {
+    border-radius: 25px;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #e0e0e0;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.2rem rgba(52, 152, 219, 0.25);
+}
+
+/* Dashboard Stats */
+.stats-card {
+    background: linear-gradient(135deg, #3498db, #2c3e50);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.stats-card i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+/* Trip Cards */
+.trip-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.trip-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #3498db, #2c3e50);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animated {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Modal Styling */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+}
+
+.modal-header {
+    background: linear-gradient(to right, #2c3e50, #3498db);
+    color: white;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-title {
+    font-weight: 600;
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(to right, #2c3e50, #3498db);
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .navbar-custom {
+        padding: 0.5rem 1rem;
+    }
+    
+    .btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .stats-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Loading Animation */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--secondary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Toast Notifications */
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.toast {
+    background: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-bottom: 10px;
+    box-shadow: var(--shadow);
+    animation: slideIn 0.3s ease-out forwards;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+}
+
+/* Homepage Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(52, 152, 219, 0.8)),
+                url('/img/travel-bg.jpg') center/cover;
+    color: white;
+    padding: 5rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+    border-radius: 15px;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+}
+
+.form-title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.form-title i {
+    margin-left: 10px;
+    color: var(--secondary-color);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    color: var(--primary-color);
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.form-group label i {
+    margin-right: 8px;
+    color: var(--secondary-color);
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.social-login {
+    margin: 20px 0;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.form-footer a {
+    color: var(--secondary-color);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+}

@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <h2>Contact Messages</h2>
+    <% if(contacts.length > 0) { %>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% contacts.forEach(function(contact) { %>
+                        <tr>
+                            <td><%= contact.name %></td>
+                            <td><%= contact.email %></td>
+                            <td><%= contact.subject %></td>
+                            <td><%= contact.message %></td>
+                            <td><%= contact.date.toLocaleDateString() %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <p>No contact messages found.</p>
+    <% } %>
+</div>

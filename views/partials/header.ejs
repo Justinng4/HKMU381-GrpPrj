@@ -1,0 +1,183 @@
+<header class="main-header">
+    <div class="container">
+        <div class="logo">
+            <a href="/">
+                <span class="icon">🌎</span>
+                Travel Planner
+            </a>
+        </div>
+
+        <nav class="main-nav">
+            <a href="/" class="<%= path === '/' ? 'active' : '' %>">Home</a>
+            <a href="/about" class="<%= path === '/about' ? 'active' : '' %>">About</a>
+            <a href="/contact" class="<%= path === '/contact' ? 'active' : '' %>">Contact</a>
+            
+            <% if (user) { %>
+                <div class="user-nav">
+                    <a href="/dashboard" class="<%= path === '/dashboard' ? 'active' : '' %>">Dashboard</a>
+                    <a href="/trip-planner" class="<%= path === '/trip-planner' ? 'active' : '' %>">Trip Planner</a>
+                    <a href="/budget-calculator" class="<%= path === '/budget-calculator' ? 'active' : '' %>">Budget Calculator</a>
+                    <div class="user-dropdown">
+                        <button class="dropbtn">
+                            <%= user.name %> ▼
+                        </button>
+                        <div class="dropdown-content">
+                            <a href="/profile">Profile</a>
+                            <a href="/my-trips">My Trips</a>
+                            <a href="/settings">Settings</a>
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            <% } else { %>
+                <div class="auth-nav">
+                    <a href="/login" class="btn btn-login">LOGIN</a>
+                    <a href="/register" class="btn btn-register">REGISTER</a>
+                </div>
+            <% } %>
+        </nav>
+    </div>
+</header>
+
+<style>
+.main-header {
+    background: linear-gradient(to right, #2c3e50, #3498db);
+    padding: 1rem 0;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.logo .icon {
+    margin-right: 0.5rem;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.main-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-nav a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.auth-nav {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-login {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.btn-register {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.user-nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.user-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .main-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .user-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .auth-nav {
+        width: 100%;
+        justify-content: center;
+    }
+}
+</style>

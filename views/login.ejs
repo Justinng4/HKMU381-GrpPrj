@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Same head as index.html -->
+</head>
+<body>
+    <!-- Navigation (same as index.html) -->
+
+    <div class="container">
+        <div class="form-container animated">
+            <h2 class="form-title">Login <i class="fas fa-sign-in-alt"></i></h2>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email address</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Login</button>
+                
+                <div class="social-login mt-4">
+                    <button type="button" class="btn social-login-btn facebook-btn w-100 text-white">
+                        <i class="fab fa-facebook-f me-2"></i> Continue with Facebook
+                    </button>
+                    <button type="button" class="btn social-login-btn instagram-btn w-100 text-white">
+                        <i class="fab fa-instagram me-2"></i> Continue with Instagram
+                    </button>
+                </div>
+                
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="/register">Register here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer (same as index.html) -->
+</body>
+</html>

@@ -1,0 +1,26 @@
+<div class="trips-list">
+    <h2>Your Trips</h2>
+    <% if (typeof trips !== 'undefined' && trips.length > 0) { %>
+        <% trips.forEach(trip => { %>
+            <div class="trip-card">
+                <h3><%= trip.destination %></h3>
+                <p>Start Date: <%= trip.startDate.toLocaleDateString() %></p>
+                <p>End Date: <%= trip.endDate.toLocaleDateString() %></p>
+                <p><%= trip.description %></p>
+                <!-- Add edit and delete buttons if needed -->
+                <div class="trip-actions">
+                    <a href="/trips/edit/<%= trip._id %>" class="btn btn-primary">Edit</a>
+                    <form action="/trips/delete/<%= trip._id %>" method="POST" style="display: inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% }); %>
+    <% } else { %>
+        <p>No trips found. Start planning your next adventure!</p>
+    <% } %>
+    
+    <div class="add-trip">
+        <a href="/trips/new" class="btn btn-success">Add New Trip</a>
+    </div>
+</div>

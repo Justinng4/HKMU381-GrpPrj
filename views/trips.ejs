@@ -1,0 +1,131 @@
+<div class="row mb-4">
+    <div class="col">
+        <h2>My Trips</h2>
+    </div>
+    <div class="col text-end">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTripModal">
+            <i class="fas fa-plus"></i> New Trip
+        </button>
+    </div>
+</div>
+
+<!-- Search Form -->
+<div class="card mb-4">
+    <div class="card-body">
+        <form action="/trips" method="GET">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="destination" placeholder="Destination" 
+                           value="<%= search?.destination || '' %>">
+                </div>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" name="date" 
+                           value="<%= search?.date || '' %>">
+                </div>
+                <div class="col-md-3">
+                    <input type="number" class="form-control" name="budget" placeholder="Max Budget" 
+                           value="<%= search?.budget || '' %>">
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary w-100">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Trips List -->
+<div class="row">
+    <% trips.forEach(trip => { %>
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><%= trip.destination %></h5>
+                    <p class="card-text">
+                        <strong>Date:</strong> <%= new Date(trip.date).toLocaleDateString() %><br>
+                        <strong>Budget:</strong> $<%= trip.budget %><br>
+                        <strong>Duration:</strong> <%= trip.duration %> days
+                    </p>
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" 
+                                data-bs-target="#editTripModal<%= trip._id %>">
+                            Edit
+                        </button>
+                        <a href="/trips/delete/<%= trip._id %>" class="btn btn-danger btn-sm" 
+                           onclick="return confirm('Are you sure?')">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Modal for each trip -->
+        <div class="modal fade" id="editTripModal<%= trip._id %>" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Trip</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/trips/update/<%= trip._id %>" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label">Destination</label>
+                                <input type="text" class="form-control" name="destination" 
+                                       value="<%= trip.destination %>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Date</label>
+                                <input type="date" class="form-control" name="date" 
+                                       value="<%= trip.date %>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Budget</label>
+                                <input type="number" class="form-control" name="budget" 
+                                       value="<%= trip.budget %>" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Duration (days)</label>
+                                <input type="number" class="form-control" name="duration" 
+                                       value="<%= trip.duration %>" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+</div>
+
+<!-- Add Trip Modal -->
+<div class="modal fade" id="addTripModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Trip</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/trips" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label">Destination</label>
+                        <input type="text" class="form-control" name="destination" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Date</label>
+                        <input type="date" class="form-control" name="date" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Budget</label>
+                        <input type="number" class="form-control" name="budget" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Duration (days)</label>
+                        <input type="number" class="form-control" name="duration" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Trip</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
