@@ -2,7 +2,7 @@ CREATE (POST) - Add a new user
 
 
 
-curl -X POST http://localhost:3001/users \
+curl -X POST http://https://hkmu381-grpprj.onrender.com \
 -H "Content-Type: application/json" \
 -d '{
     "name": "John Doe",
@@ -25,7 +25,7 @@ curl http://localhost:3001/users?sort=name
 
 UPDATE (PATCH) - Update user info
 Update single field
-curl -X PATCH http://localhost:3001/users/6745a541bf24ca689a929934 \
+curl -X PATCH http:///hkmu381-grpprj.onrender.com/users/6745a541bf24ca689a929934 \
 -H "Content-Type: application/json" \
 -d '{"name": "Updated Name"}'
 
@@ -38,4 +38,4 @@ curl -X PATCH http://localhost:3001/users/6745a541bf24ca689a929934 \
 }'
 
 DELETE - Remove user
-curl -X DELETE http://localhost:3000/users/6745a541bf24ca689a929934
+curl -X DELETE https://hkmu381-grpprj.onrender.com/users/6745a541bf24ca689a929934
