@@ -1,5 +1,16 @@
 CREATE (POST) - Add a new user
-curl -X POST http://hkmu381-grpprj.onrender.com -H "Content-Type: application/json" -d '{"name": "John Doe", "email": "john@example.com", "password": "password123"}'
+
+
+
+curl -X POST http://localhost:3001/users \
+-H "Content-Type: application/json" \
+-d '{
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password123"
+}'
+
+
 
 
 Get all users
